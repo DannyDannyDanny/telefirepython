@@ -13,3 +13,5 @@ Telegram Bot Connected to Google Firebase
 
 >6. Make python environment `virtualenv envname`
 >7. Install module dependencies `envname/bin/pip install firebase-admin`
+
+[Telegram Bot Forum Chat](https://t.me/pythontelegrambotgroup)
