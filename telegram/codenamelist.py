@@ -48,7 +48,7 @@ def generate():
     adjectives = adjectives_
     adverbs = adverbs_
 
-    [word for word in adjectives if word in nouns or word in adverbs]
+    #[word for word in adjectives if word in nouns or word in adverbs]
 
     no = ['you','if','anything','it','very']
 
