@@ -102,3 +102,6 @@ ENV/
 
 # sensitive
 creds/
+
+# MacOS
+.DS_STORE
