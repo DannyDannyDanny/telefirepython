@@ -1,11 +1,11 @@
 import codenamelist
 import numpy as np
 
- adj = codenamelist.loadadjectives()
- ver = codenamelist.loadadverbs()
- nou = codenamelist.loadnouns()
+adj = codenamelist.loadadjectives()
+ver = codenamelist.loadadverbs()
+nou = codenamelist.loadnouns()
 
- print(len(adj))
+print(len(adj))
 
 # r = np.random
 #

@@ -40,7 +40,7 @@ def generate():
     nouns = loadnouns()
     adjectives = loadadjectives()
     adverbs = loadadverbs()
-    no = ['you','if','anything']
+    no = ['you','if','anything','just','well','it','she','he']
 
     print('filtering nouns and adjectives')
     nouns = [noun for noun in nouns if noun not in adjectives and noun not in adverbs and noun not in no]
