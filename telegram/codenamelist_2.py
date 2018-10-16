@@ -38,8 +38,14 @@ def generate():
     nouns = loadnouns()
     adjectives = loadadjectives()
     adverbs = loadadverbs()
-    print('removing words that can be multiple parts of speech')
 
+    no = ['you','if','anything','just','well','it','she','he']
+
+    print('filtering crappy words')
+    nouns = [noun for noun in nouns if noun not in no]
+    adjectives = [adj for adj in adjectives if adj not in no]
+
+    print('removing words that are several parts of speech')
     # expanded implementation in case of counting how many words are removed
     nouns_ = [word for word in nouns if word not in adjectives and word not in adverbs]
     adjectives_ = [word for word in adjectives if word not in nouns and word not in adverbs]
@@ -47,14 +53,6 @@ def generate():
     nouns = nouns_
     adjectives = adjectives_
     adverbs = adverbs_
-
-    #[word for word in adjectives if word in nouns or word in adverbs]
-
-    no = ['you','if','anything','it','very']
-
-    print('filtering crappy words')
-    nouns = [noun for noun in nouns if noun not in no]
-    adjectives = [adj for adj in adjectives if adj not in no]
 
     t = loadtext().split(' ')
     print('scanning for adj-noun pairs')

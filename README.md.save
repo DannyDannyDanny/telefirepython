@@ -2,8 +2,6 @@
 Telegram Bot Connected to Google Firebase
 
 ## ipgetter
-´pip install git+https://github.com/madmouser1/ipgetter.git`
-
 
 
 ## Environment Setup Procedure
@@ -18,5 +16,3 @@ Telegram Bot Connected to Google Firebase
 
 >6. Make python environment `virtualenv envname`
 >7. Install module dependencies `envname/bin/pip install firebase-admin`
-
-[Telegram Bot Forum Chat](https://t.me/pythontelegrambotgroup)

@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 firebase-admin = "*"
+python-telegram-bot = "*"
 numpy = "*"
 
 [dev-packages]
