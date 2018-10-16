@@ -26,7 +26,6 @@ def loadadverbs():
     print(len(adverbs), 'adverbs loaded.')
     return adverbs
 
-
 def loadtext():
     print('loading text')
     url_pride = 'https://www.gutenberg.org/files/1342/1342-0.txt'
@@ -35,25 +34,44 @@ def loadtext():
     print(len(pride), 'words of text loaded')
     return pride
 
-
 def generate():
     nouns = loadnouns()
     adjectives = loadadjectives()
     adverbs = loadadverbs()
+<<<<<<< HEAD
     no = ['you','if','anything','just','well','it','she','he']
+=======
+    print('removing words that can be multiple parts of speech')
 
-    print('filtering nouns and adjectives')
-    nouns = [noun for noun in nouns if noun not in adjectives and noun not in adverbs and noun not in no]
-    adjectives = [adj for adj in adjectives if adj not in nouns and adj not in adverbs and adj not in no]
-    print('filtering complete')
+    # expanded implementation in case of counting how many words are removed
+    nouns_ = [word for word in nouns if word not in adjectives and word not in adverbs]
+    adjectives_ = [word for word in adjectives if word not in nouns and word not in adverbs]
+    adverbs_ = [word for word in adverbs if word not in nouns and word not in adjectives]
+    nouns = nouns_
+    adjectives = adjectives_
+    adverbs = adverbs_
+
+    [word for word in adjectives if word in nouns or word in adverbs]
+>>>>>>> caad9edf6486e55f6e40738556638b4607b0c299
+
+    no = ['you','if','anything','it','very']
+
+    print('filtering crappy words')
+    nouns = [noun for noun in nouns if noun not in no]
+    adjectives = [adj for adj in adjectives if adj not in no]
 
     t = loadtext().split(' ')
     print('scanning for adj-noun pairs')
     pairs = [str(t[i]+' '+t[i+1]) for i in range(len(t)-1) if t[i] in adjectives and t[i+1] in nouns]
     print('scan complete,',len(pairs),'pairs found')
-    return pairs
+    return list(set(pairs))
 
-#generate()
+pairs = generate()
+
+pairs[0:100]
+
+pairs[np.random.randint(len(pairs))]
+
 
 # more texts
 # https://www.gutenberg.org/browse/scores/top
