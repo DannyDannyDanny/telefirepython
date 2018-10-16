@@ -1,8 +1,9 @@
 # telefirepython
 Telegram Bot Connected to Google Firebase
 
-## ipgetter
-´pip install git+https://github.com/madmouser1/ipgetter.git`
+## dependencies
+    # ipgetter
+    pip install git+https://github.com/madmouser1/ipgetter.git
 
 
 
