@@ -51,7 +51,7 @@ def generate():
 
     #[word for word in adjectives if word in nouns or word in adverbs]
 
-    no = ['you','if','anything','it','very']
+    no = ['you','if','anything','just','well','it','she','he']
 
     print('filtering crappy words')
     nouns = [noun for noun in nouns if noun not in no]
@@ -65,9 +65,6 @@ def generate():
 
 pairs = generate()
 
-pairs[0:100]
-
-pairs[np.random.randint(len(pairs))]
 
 
 # more texts
