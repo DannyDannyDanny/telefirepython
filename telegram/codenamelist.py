@@ -65,7 +65,5 @@ def generate():
 
 pairs = generate()
 
-
-
 # more texts
 # https://www.gutenberg.org/browse/scores/top
