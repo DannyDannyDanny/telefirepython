@@ -1,6 +1,15 @@
 # telefirepython
 Telegram Bot Connected to Google Firebase
 
+## how to
+1. Start server and start 2-pane tmux session
+2. Start good_bot on pane 2
+3. Detach from tmux session `^b, d`
+4. Connect to server via ssh
+5. Use tmux attach to continue session
+6. Do work
+7. Detach from tmux session, exit.
+
 ## dependencies
     # ipgetter
     pip install git+https://github.com/madmouser1/ipgetter.git
