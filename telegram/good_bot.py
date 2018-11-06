@@ -39,6 +39,9 @@ def external_ip(bot, update):
     """Send external ip when /external_ip"""
     update.message.reply_text(my_external_ip)
 
+def webserverupdate(bot, update):
+    """Run github scipt"""
+    update.message.reply_text("running github pull script")
 
 def codename(bot, update):
     """Send a message when the command /generate is issued."""
@@ -81,6 +84,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('help', help))
+    dp.add_handler(CommandHandler('webserverupdate', webserverupdate))
     dp.add_handler(CommandHandler('codename', codename))
     dp.add_handler(CommandHandler('external_ip', external_ip))
 
