@@ -1,27 +1,39 @@
+# https://firebase.google.com/docs/reference/admin/python/
 import firebase_admin
-from firebase_admin import credentials, firestore,db
+from firebase_admin import credentials, firestore, db
 
-cred = credentials.Certificate('./creds/firebasecreds.json')
+cred = credentials.Certificate("./creds/firebasecreds.json")
 
-default_app = firebase_admin.initialize_app(cred, {
-      'databaseURL': "https://qub-test.firebaseio.com"
-})
+default_app = firebase_admin.initialize_app(
+    cred, {"databaseURL": "https://qub-test.firebaseio.com"}
+)
 
-ref = db.reference('/')
+ref = db.reference("/")
 data = ref.get()
+
+print(data)
+
+
+emails = [x.replace("'", "").replace(",", "") for x in str(data).split(" ") if "@" in x]
+
+print(emails)
 
 data.keys()
 
-for key in ['AvailableAppointments','MatchedAppointments','PendingAppointments','Users']:
-    print(key,len(data[key]))
-
+for key in [
+    "AvailableAppointments",
+    "MatchedAppointments",
+    "PendingAppointments",
+    "Users",
+]:
+    print(key, len(data[key]))
 
 
 # https://firebase.google.com/docs/database/admin/start
 
 # %%
 
-#{
+# {
 #    name: "USA",
 #    values: [
 #      {date: "2000", price: "100"},
@@ -65,5 +77,5 @@ for key in ['AvailableAppointments','MatchedAppointments','PendingAppointments',
 #      {date: "2008", price: "61"},
 #      {date: "2009", price: "10"}
 #    ]
-#}
+# }
 # %%
