@@ -1,5 +1,6 @@
 import numpy as np
 import urllib.request as urllib2
+import stringdist
 
 def loadnouns():
     # LOADS nouns
@@ -76,7 +77,28 @@ def generate():
     print('scan complete,',len(pairs),'pairs found')
     return list(set(pairs))
 
-pairs = generate()
-
+#pairs = generate()
+nouns, adjs, advs = get_noun_adj_adv()
 # more texts
 # https://www.gutenberg.org/browse/scores/top
+
+# %% Method: Levenshtein distances
+goal = 'dectivation rate calculator'
+dict_dist_cnames = {}
+for a in adjs:
+    for n in nouns:
+        lev = stringdist.levenshtein(a+n,goal)
+        dict_dist_cnames[a+' '+n] = lev
+
+leven_sort = sorted(dict_dist_cnames.items(), key=lambda kv: kv[1])
+leven_closest = list(set([i[1] for i in leven_sort]))[0:3]
+leven_subset = [i for i in leven_sort if i[1] in leven_closest]
+len_sort = sorted([i[0] for i in leven_subset[0:40]],key=lambda kv: len(kv))
+len_sort
+
+# %% Method: Starts-with
+
+lim = -1
+for a in [a for a in adjs if a[0]=='d' and 'r' in a][0:lim]:
+    for n in [n for n in nouns if n[0:3]=='cal'][0:lim]:
+        print(a,n)
