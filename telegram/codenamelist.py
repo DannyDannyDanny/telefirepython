@@ -14,6 +14,7 @@ def loadadjectives():
     # LOADS adjectives
     print('loading adjectives')
     url_adjectives = 'https://www.d.umn.edu/~rave0029/research/adjectives1.txt'
+    url_adjectives = 'https://gist.githubusercontent.com/hugsy/8910dc78d208e40de42deb29e62df913/raw/eec99c5597a73f6a9240cab26965a8609fa0f6ea/english-adjectives.txt'
     bytes_adjectives = urllib2.urlopen(url_adjectives) # it's a file like object and works just like a file
     adjectives = [adjective.replace(b'\xa0',b'').decode('utf-8').replace('\n','') for adjective in bytes_adjectives]
     print(len(adjectives), 'adjectives loaded.')
