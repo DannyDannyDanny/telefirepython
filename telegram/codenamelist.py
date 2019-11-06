@@ -36,6 +36,18 @@ def loadtext():
     print(len(pride), 'words of text loaded')
     return pride
 
+def get_noun_adj_adv():
+    nouns = loadnouns()
+    adjectives = loadadjectives()
+    adverbs = loadadverbs()
+    print('removing words that can be multiple parts of speech')
+
+    # expanded implementation in case of counting how many words are removed
+    nouns_ = [word for word in nouns if word not in adjectives and word not in adverbs]
+    adjectives_ = [word for word in adjectives if word not in nouns and word not in adverbs]
+    adverbs_ = [word for word in adverbs if word not in nouns and word not in adjectives]
+    return nouns_,adjectives_,adverbs_
+
 def generate():
     nouns = loadnouns()
     adjectives = loadadjectives()
